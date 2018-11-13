@@ -6,38 +6,22 @@
   </head>
   <body>
     <section>
-      <span>Sign up!</span>
-      <br>
-      <br>
+      <h1>Sign up!</h1>
       <form action="#" method="post">
         <input type="text" name="firstname" placeholder="First Name:" required="true">
-        <br>
-        <br>
         <input type="text" name="lastname" placeholder="Last Name:" required="true">
-        <br>
-        <br>
         <input type="email" name="email" placeholder="e-mail:" required="true">
-        <br>
-        <br>
         <span>Birthday:</span>
         <input type="date" name="birthday" required="true">
-        <br>
-        <br>
         <span>Choose your favorite sport:</span>
-        <select value="Favorite Sport">
-          <datalist>
-            <option>Soccer</option>
-            <option>Kick Boxing</option>
-            <option>Muai Thai</option>
-            <option>Jiu Jitsu</option>
-          </datalist>
+        <select name="favorite-sport">
+          <option value="soccer">Soccer</option>
+          <option value="kbox">Kick Boxing</option>
+          <option value="thai">Muai Thai</option>
+          <option value="jjitsu">Jiu Jitsu</option>
         </select>
-        <br>
-        <br>
         <textarea name="bio" placeholder="Write a short biography"></textarea>
-        <br>
-        <br>
-        <button type="button">Clear</button>
+        <input type="reset" value="Reset">
         <button type="submit">Submit!</button>
       </form>
     </section>
