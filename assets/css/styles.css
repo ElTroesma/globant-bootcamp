@@ -1,9 +1,9 @@
 * {
-  font-size: 20px !important;
   margin: 0;
   padding: 0;
 }
 body {
+  overflow: hidden;
 }
 .header {
   width: 95%;
@@ -21,7 +21,7 @@ body {
 }
 .content {
   font-size: 14px;
-  width: 810px;
+  width: 830px;
   height: 380px;
   display: inline-block;
   margin: auto;
@@ -44,11 +44,9 @@ body {
   background: magenta;
   font-size: 10px;
 }
-/*
 #another-font-size {
   font-size: 20px;
 }
-*/
 .on-no-inline-styles {}
 #background-green {
   background: green !important;
