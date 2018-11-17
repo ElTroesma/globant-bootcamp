@@ -4,50 +4,49 @@
 }
 body {
   overflow: hidden;
+  padding: 2vh 1vw;
 }
 .header {
-  width: 95%;
-  margin: 34px auto;
-  height: 80px;
+  width: 98vw;
+  height: 10vh;
   font-size: 46px;
   background: magenta;
 }
 .footer {
-  width: 95%;
-  margin: 34px auto;
-  height: 60px;
+  width: 100%;
+  height: 10vh;
   font-size: 10px;
   background: magenta;
 }
 .content {
   font-size: 14px;
-  width: 830px;
-  height: 380px;
+  width: 66vw;
+  height: 72vh;
   display: inline-block;
-  margin: auto;
+  margin: 2vh 1vw;
 }
 .navigation {
   float: left;
   display: block;
-  height: 380px;
-  width: 200px;
-  margin: 0 34px;
+  height: 72vh;
+  width: 15vw;
+  margin: 2vh 0;
   background: blue;
   font-size: 12px;
 }
 .sidebar {
   float: right;
   display: block;
-  height: 380px;
-  width: 200px;
-  margin: 0 34px;
+  height: 72vh;
+  width: 15vw;
+  margin: 2vh 0;
   background: magenta;
   font-size: 10px;
 }
-#another-font-size {
+.another-font-size {
   font-size: 20px;
 }
-.on-no-inline-styles {}
-#background-green {
-  background: green !important;
+#background-green.on-no-inline-styles {
+  display: none;
+  background: green;
 }
