@@ -6,7 +6,11 @@
 .random-content-div {
   text-align: center;
 }
+.content-button {
+  margin: 10px auto;
+}
 .random-content-p {}
 #hideText {
   display: none;
+  text-align: center;
 }
