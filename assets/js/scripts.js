@@ -1,4 +1,4 @@
 function showText() {
   document.getElementById('hideText').style.display = 'block';
 }
-document.addEventListener("load", showText());
+window.addEventListener("load", showText);
