@@ -4,11 +4,9 @@ function showText() {
 window.addEventListener("load", showText);
 
 function displayAlert() {
-  alert("You have pressed the button");
+  var req = new XMLHttpRequest();
+  req.open('GET', 'http://api.icndb.com/jokes/random', false);
+  req.send(null);
+  console.log(req.responseText);
 }
 document.getElementById('showAlert').addEventListener("click", displayAlert);
-
-var req = new XMLHttpRequest();
-req.open('GET', 'http://api.icndb.com/jokes/random', false);
-req.send(null);
-console.log(req);
