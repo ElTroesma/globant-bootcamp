@@ -13,6 +13,9 @@ function doRequest(method, url) {
       if (req.readyState == 4) {
         resolve(req.responseText);
       }
+      req.onerror = function () {
+        document.getElementById('randomSection').style.background = 'red';
+      }
     }
   });
 
@@ -23,5 +26,6 @@ function displayAlert() {
   doRequest('GET', 'http://api.icndb.com/jokes/random').then(function (responseText) {
     document.getElementById('displayText').innerHTML = responseText;
   })
+
 }
 document.getElementById('showAlert').addEventListener("click", displayAlert);
