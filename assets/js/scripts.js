@@ -35,17 +35,23 @@ function displayAlert() {
 
 document.getElementById('showAlert').addEventListener("click", displayAlert);
 
-doRequest('GET', 'http://api.github.com/search/repositories', 'q=javascript')
-.then((response) => {
-  var res = JSON.parse(response);
-  var repoList = document.getElementById('repos');
+function capture() {
+  var searchResult = document.getElementById('searchInput').value;
 
-  res.items.forEach(repo => {
-    var repoItem = '<li>' + repo.name + '</li>';
-    repoList.innerHTML += repoItem;
-    console.log(repo);
+  console.log('q=' + searchResult);
+
+  doRequest('GET', 'http://api.github.com/search/repositories', 'q=' + searchResult)
+  .then((response) => {
+    var res = JSON.parse(response);
+    var repoList = document.getElementById('repos');
+
+    res.items.forEach(repo => {
+      var repoItem = '<li>' + repo.name + '</li>';
+      repoList.innerHTML += repoItem;
+      console.log(repo);
+    })
   })
-})
-.catch(function (error) {
-  document.getElementById('randomSection').style.background = 'red';
-})
+  .catch(function (error) {
+    document.getElementById('randomSection').style.background = 'red';
+  })
+}
