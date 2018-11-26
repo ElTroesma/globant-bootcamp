@@ -3,10 +3,10 @@ function showText() {
 }
 window.addEventListener("load", showText);
 
-function doRequest(method, url) {
+function doRequest(method, url, search) {
   var requestPromise = new Promise((resolve, reject) => {
     var req = new XMLHttpRequest();
-    req.open(method, url, true);
+    req.open(method, search ? url + '?' + search : url, true);
     req.send(null);
 
     req.onreadystatechange = function () {
@@ -31,6 +31,21 @@ function displayAlert() {
   .catch(function (error) {
     document.getElementById('randomSection').style.background = 'red';
   })
-
 }
+
 document.getElementById('showAlert').addEventListener("click", displayAlert);
+
+doRequest('GET', 'http://api.github.com/search/repositories', 'q=javascript')
+.then((response) => {
+  var res = JSON.parse(response);
+  var repoList = document.getElementById('repos');
+
+  res.items.forEach(repo => {
+    var repoItem = '<li>' + repo.name + '</li>';
+    repoList.innerHTML += repoItem;
+    console.log(repo);
+  })
+})
+.catch(function (error) {
+  document.getElementById('randomSection').style.background = 'red';
+})
