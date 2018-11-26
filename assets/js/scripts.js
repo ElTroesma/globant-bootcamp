@@ -10,12 +10,13 @@ function doRequest(method, url) {
     req.send(null);
 
     req.onreadystatechange = function () {
-      if (req.readyState == 4) {
+      if (req.readyState == 4 && req.status == 200) {
         resolve(req.responseText);
       }
-      req.onerror = function () {
-        document.getElementById('randomSection').style.background = 'red';
-      }
+    }
+
+    req.onerror = function (error) {
+      reject(error);
     }
   });
 
@@ -23,8 +24,12 @@ function doRequest(method, url) {
 }
 
 function displayAlert() {
-  doRequest('GET', 'http://api.icndb.com/jokes/random').then(function (responseText) {
+  doRequest('GET', 'http://api.icndb.com/jokes/random')
+  .then(function (responseText) {
     document.getElementById('displayText').innerHTML = responseText;
+  })
+  .catch(function (error) {
+    document.getElementById('randomSection').style.background = 'red';
   })
 
 }
