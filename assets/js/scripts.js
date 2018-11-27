@@ -55,3 +55,30 @@ function capture() {
     document.getElementById('randomSection').style.background = 'red';
   })
 }
+
+function addDataTable(data) {
+  var tableContainer = document.getElementById('tableContainer');
+  var table = document.createElement('table');
+  var tbody = document.createElement('tbody');
+
+  data.forEach(function (person) {
+    var trPerson = document.createElement('tr');
+    var tdPersonName = document.createElement('td');
+    var tdPersonGroup = document.createElement('td');
+    var textPersonName = document.createTextNode(person.name);
+    var textPersonGroup = document.createTextNode(person.group);
+    trPerson.appendChild(tdPersonName);
+    trPerson.appendChild(tdPersonGroup);
+    tdPersonName.appendChild(textPersonName);
+    tdPersonGroup.appendChild(textPersonGroup);
+    tbody.appendChild(trPerson);
+  });
+  table.appendChild(tbody);
+  tableContainer.appendChild(table);
+}
+addDataTable([
+  {name: "Carlos", group: 2},
+  {name: "Alejandro", group: 2},
+  {name: "Martina", group: 2},
+  {name: "Juan", group: 2}
+]);
