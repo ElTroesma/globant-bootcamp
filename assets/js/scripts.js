@@ -22,3 +22,10 @@ class Actor {
 
 var matrixActor = new Actor("Keanu Reeves", 54);
 console.log(matrixActor);
+
+class EventEmitter {
+  constructor() {}
+  on(eventName, callback) {}
+  emit(eventName) {}
+  off(eventName, callback) {}
+}
