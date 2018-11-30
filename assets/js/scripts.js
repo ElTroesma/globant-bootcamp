@@ -20,7 +20,7 @@ class EventEmitter {
 
   emit(eventName) {
     if (!this.eventNames.includes(eventName)) {
-      throw 'El evento' + eventName + 'no existe en el objeto';
+      throw 'El evento ' + eventName + ' no existe en el objeto';
     }
 
     var eventHandlers = this.eventCallbacks[eventName];
@@ -33,11 +33,12 @@ class EventEmitter {
 }
 
 class Movie extends EventEmitter {
-  constructor(title, year, duration) {
+  constructor(title, year, duration, cast) {
     super(['play', 'pause', 'resume']);
     this.title = title;
     this.year = year;
     this.duration = duration;
+    this.cast = [];
   }
   play() {
     this.emit('play');
@@ -48,9 +49,19 @@ class Movie extends EventEmitter {
   resume() {
     this.emit('resume');
   }
+  addCast(cast) {
+    if (!cast) {
+      throw 'El metodo addCast requiere el argumento *cast* obligatoriamente';
+    }
+    if (cast.length === undefined) {
+      this.cast.push(cast);
+    } else {
+      this.cast = this.cast.concat(cast);
+    }
+  }
 }
 
-var matrix = new Movie("Matrix", 1999, 2.30);
+const matrix = new Movie("Matrix", 1999, 2.30);
 
 matrix.on('play', function(){
   alert('This movie`s name is ' + matrix.title + ', he trained in ' + matrix.year + '. Its duration ' + matrix.duration + ' hs.');
@@ -69,4 +80,11 @@ class Actor {
   }
 }
 
-var matrixActor = new Actor("Keanu Reeves", 54);
+const keanu = new Actor('Keanu Reeves', 54);
+const cast = [
+  new Actor('Anne Moss', 51),
+  new Actor('Laurence Fishburne', 57),
+  new Actor('Hugo Weaving', 58)
+];
+matrix.addCast(keanu);
+matrix.addCast(cast);
