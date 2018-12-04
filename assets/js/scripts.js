@@ -61,15 +61,29 @@ class Movie extends EventEmitter {
   }
 }
 
+class Logger  {
+  constructor() {};
+  log(info) {
+    console.log(info);
+  };
+}
+
+
 const matrix = new Movie("Matrix", 1999, 2.30);
 
+const logger = new Logger();
+
+
 matrix.on('play', function(){
+  logger.log('The play event has been emitted');
   alert('This movie`s name is ' + matrix.title + ', he trained in ' + matrix.year + '. Its duration ' + matrix.duration + ' hs.');
 });
 matrix.on('pause', function() {
-  alert('While ' + matrix.title + ' is in pause, take advantage to go to the batrrom!');
+  logger.log('The pause event has been emitted');
+  alert('While ' + matrix.title + ' is in pause, take advantage to go to the bathrom!');
 });
 matrix.on('resume', function() {
+  logger.log('The resume event has been emitted');
   alert(matrix.title + ' has been resumed. Enjoy it!')
 });
 
