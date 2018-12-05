@@ -102,3 +102,15 @@ const cast = [
 ];
 matrix.addCast(keanu);
 matrix.addCast(cast);
+
+const social = {
+  share: function (friendName) {
+    console.log(friendName + ' has been shared this movie.');
+  },
+  like: function (friendName) {
+    console.log(friendName + ' likes this movie.');
+  }
+}
+Object.assign(matrix, social);
+matrix.share('Carlos Aiello');
+matrix.like('Alfredo Rosadilla');
