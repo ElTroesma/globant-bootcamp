@@ -13,3 +13,16 @@ if (result != null) {
 clearButton.addEventListener('click', function () {
   localStorage.clear();
 });
+
+// Drag and Drop
+
+text.addEventListener('drop', function(event) {
+  event.preventDefault();
+  var reader = new FileReader();
+  reader.readAsText(event.dataTransfer.files[0]);
+  if (event.dataTransfer.files[0].type == "text/plain") {
+    reader.addEventListener('load', function(event) {
+      text.innerHTML = event.target.result;
+    });
+  }
+});
