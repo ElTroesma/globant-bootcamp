@@ -26,3 +26,44 @@ text.addEventListener('drop', function(event) {
     });
   }
 });
+
+// Web Socket
+
+var socket = new WebSocket('ws://echo.websocket.org');
+var open = document.getElementById('open');
+var close = document.getElementById('close');
+
+function onOpen() {
+  socket.onopen;
+  write('Socket has been opened! Send a message!');
+}
+open.addEventListener('click', onOpen);
+
+function onClose() {
+  socket.onclose;
+  write('Socket has been closed!');
+}
+close.addEventListener('click', onClose);
+
+socket.onmessage = function(msg) {
+  write('Message recived: ' + msg.data);
+}
+socket.onerror = function(error) {
+  write('The following error has occurred: ' + error.data);
+}
+
+function write(message) {
+  var pre = document.createElement('p');
+  pre.innerHTML = message;
+  var output = document.getElementById('output');
+  output.appendChild(pre);
+}
+
+function send() {
+  var message = document.getElementById('messageInput');
+  socket.send(message.value);
+  write('Sent: ' + message.value);
+}
+
+var sendButton = document.getElementById('send');
+sendButton.addEventListener('click', send);
