@@ -81,6 +81,22 @@
   border: solid .5px #a2a2a2;
 }
 .list-container {}
+.hideModal {
+  position: absolute;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+
+  background: #00000078;
+}
+.modalbtn {
+  display: inline-block;
+  width: 130px;
+  margin: 0 14px 10px;
+}
 .design {
   position: absolute;
   bottom: 0;
@@ -98,9 +114,10 @@
 .list-movie-item {
   margin: 14px auto;
 
+  font-family: 'Open Sans', sans-serif;
   font-size: 14px;
 
+  cursor: pointer;
   list-style: none;
-  background: #009c73;
-  color: #fff;
+  color: #2c2c2c;
 }
